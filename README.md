@@ -1,6 +1,6 @@
 ---
 title: Sails
-description: A Sails app that connects to a PostgreSQL database and saves session in a Redis store.
+description: A Sails app that connects to a PostgreSQL database and saves sessions in a Redis store.
 tags:
   - nodejs
   - sails
