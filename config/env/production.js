@@ -18,7 +18,8 @@
  * For more best practices and tips, see:
  * https://sailsjs.com/docs/concepts/deployment
  */
-var Redis = require('ioredis');
+const Redis = require('ioredis');
+const redisClient = new Redis(process.env.REDIS_URL);
 module.exports = {
 
 
@@ -185,7 +186,9 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     adapter: require('connect-redis')(require('express-session')),
-    client: new Redis(process.env.REDIS_URL),
+    store: new (require('connect-redis')(require('express-session')))( {
+      client: redisClient,
+    }),
     //--------------------------------------------------------------------------
     // /\   OR, to avoid checking it in to version control, you might opt to
     // ||   set sensitive credentials like this using an environment variable.
