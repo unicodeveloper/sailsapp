@@ -184,7 +184,7 @@ module.exports = {
     * > (For a full list, see https://sailsjs.com/plugins/sessions)            *
     *                                                                          *
     ***************************************************************************/
-    adapter: 'connect-redis',
+    adapter: require("connect-redis").default,
     client: new Redis(process.env.REDIS_URL + '?family=0'),
     //--------------------------------------------------------------------------
     // /\   OR, to avoid checking it in to version control, you might opt to
