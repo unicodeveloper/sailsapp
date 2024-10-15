@@ -186,9 +186,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     adapter: require('connect-redis')(require('express-session')),
-    store: new (require('connect-redis')(require('express-session')))( {
-      client: redisClient,
-    }),
+    client: new Redis(process.env.REDIS_URL + '?family=0'),
     //--------------------------------------------------------------------------
     // /\   OR, to avoid checking it in to version control, you might opt to
     // ||   set sensitive credentials like this using an environment variable.
